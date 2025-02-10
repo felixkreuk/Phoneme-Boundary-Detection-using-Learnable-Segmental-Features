@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from loguru import logger
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
-from pytorch_lightning.logging import TestTubeLogger
+from pytorch_lightning.loggers import TestTubeLogger
 from torch.backends import cudnn
 from torch.utils.data import DataLoader, Dataset
 
