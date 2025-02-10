@@ -132,8 +132,8 @@ class Segmentor(nn.Module):
     def forward(self, x, length, gt_seg=None):
         """forward
 
-        :param x:
-        :param length:
+        :param x: 
+        :param length: 
         """
         results = {}
 
