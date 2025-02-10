@@ -24,8 +24,8 @@ If you find this implementation useful, please consider citing our work:
 ```
 
 ## Dependencies
-
-```
+python=3.8.2
+``` updated- see requirements.txt
 loguru==0.4.1
 boltons==20.0.0
 pandas==1.0.0

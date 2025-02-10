@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from loguru import logger
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
-from pytorch_lightning.loggers import TestTubeLogger
+from pytorch_lightning.loggers import TensorBoardLogger
 from torch.backends import cudnn
 from torch.utils.data import DataLoader, Dataset
 
@@ -44,7 +44,7 @@ def main(hparams):
         mode='min'
     )
 
-    tt_logger = TestTubeLogger(
+    tt_logger = TensorBoardLogger(
         save_dir=hparams.run_dir,
         name="lightning_logs",
         debug=False,

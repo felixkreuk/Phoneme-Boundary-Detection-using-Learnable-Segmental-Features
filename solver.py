@@ -19,7 +19,7 @@ from utils import PrecisionRecallMetricMultiple, StatsMeter
 class Solver(LightningModule):
     def __init__(self, config):
         super(Solver, self).__init__()
-        self.hparams = config
+        self.save_hyperparameters(config)
 
         if config.dataset == "timit":
             self.datasetClass = TimitDataset
@@ -51,7 +51,6 @@ class Solver(LightningModule):
         logger.info(f"rnn input size: {config.rnn_input_size}")
         logger.info(f"{self.segmentor}")
 
-    @pl.data_loader
     def train_dataloader(self):
         self.train_loader = DataLoader(self.train_dataset,
                                        batch_size=self.config.batch_size,
@@ -62,7 +61,6 @@ class Solver(LightningModule):
         logger.info(f"training set length {len(self.train_dataset)}")
         return self.train_loader
 
-    @pl.data_loader
     def val_dataloader(self):
         self.valid_loader = DataLoader(self.valid_dataset,
                                        batch_size=self.config.batch_size,
@@ -72,7 +70,6 @@ class Solver(LightningModule):
         logger.info(f"validation set length {len(self.valid_dataset)}")
         return self.valid_loader
 
-    @pl.data_loader
     def test_dataloader(self):
         self.test_loader  = DataLoader(self.test_dataset,
                                        batch_size=self.config.batch_size,
