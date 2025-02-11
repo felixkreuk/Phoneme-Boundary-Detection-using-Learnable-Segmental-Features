@@ -96,7 +96,7 @@ def build_model(config):
 # %%
 config = HParams()
 # %%
-file_path = '8842-304647-0013.wav'
+file_path = 'libri-audio/1272-128104-0011.flac'
 speech, sr = torchaudio.load(file_path)
 
 # %%
