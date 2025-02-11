@@ -142,8 +142,9 @@ class Segmentor(nn.Module):
         rnn_out, _ = self.rnn(x)
         rnn_out, _ = nn.utils.rnn.pad_packed_sequence(rnn_out, batch_first=True)
         rnn_cum = torch.cumsum(rnn_out, dim=1)
+        print(rnn_out.shape, rnn_cum.shape)
         phi = self.calc_phi(rnn_out, rnn_cum)
-
+        print(phi.shape)
         # feed through classifiers
         results['cls_out'] = self.classifier(rnn_out)
         results['bin_out'] = self.bin_classifier(rnn_out)
